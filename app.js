@@ -30,6 +30,7 @@ app.use(require("cors")());
 
 // MongoDB
 require("./config/db");
+require("./src/modules/default.seed")();
 
 // Routes
 const routes = require("./config/routes");

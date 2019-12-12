@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 const { isEmail } = require("validator");
 const common = require("../src/modules/common");
 
+const sources = {
+  EMAIL: "email",
+  GITHUB: "github"
+};
+
 var userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -9,18 +14,32 @@ var userSchema = new mongoose.Schema(
       type: String,
       validate: [isEmail],
       required: true,
-      dropDups: true
+      index: { unique: true },
+      lowercase: true
     },
     password: { type: String, required: true, set: common.hash },
-    address: {
-      address_1: String,
-      city: String,
-      country: String,
-      zip: String
+    permission_group: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Permission"
+    },
+    source: {
+      type: String,
+      required: true,
+      enum: Object.entries(sources).map(([key, value]) => value),
+      default: sources.EMAIL
+    },
+    is_superuser: {
+      type: Boolean,
+      default: false
+    },
+    external_reference: {
+      type: String,
+      default: null
     }
   },
   {
-    timestamps: true
+    timestamps: true,
+    strict: true
   }
 );
 

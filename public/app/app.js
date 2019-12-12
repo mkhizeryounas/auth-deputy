@@ -43,30 +43,14 @@ app.factory("authFactory", function($localStorage, $http, $rootScope) {
   return {
     async authenticate() {
       try {
-        // This block is to be removed from here
-        if (
-          typeof $localStorage.user !== "undefined" &&
-          $localStorage.user !== null &&
-          $localStorage.user !== ""
-        ) {
-          $rootScope.header(true);
-          $rootScope.isAuth = true;
-          $rootScope.user = $localStorage.user;
-          return true;
-        } else {
-          throw {
-            data: "not logged in"
-          };
-        }
-        // This block is to be removed to here
-
-        let res = await $http.get("/user/me");
+        let res = await $http.get("/users/authenticate");
         $rootScope.header(true);
         $rootScope.isAuth = true;
         $rootScope.user = res.data;
         return res.data;
       } catch (err) {
         console.log("Authenticate factory error", err);
+        // toastr.error(err.data.message);
         $rootScope.header(false);
         $localStorage.user = null;
         $rootScope.isAuth = false;
