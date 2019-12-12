@@ -1,0 +1,16 @@
+{
+  "name": "frontend",
+  "authors": ["Khizer Younas <m.khizeryounas@gmail.com>"],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "directory": "public/bower_components",
+  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
+  "dependencies": {
+    "angular": "@uirouter/angularjs#^1.7.3",
+    "angular-ui-router": "^1.0.20",
+    "ngstorage": "^0.3.11",
+    "angular-loading-bar": "^0.9.0",
+    "toastr": "^2.1.3"
+  }
+}

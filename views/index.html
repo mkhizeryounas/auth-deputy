@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+
+  <title>Home</title>
+  <base href="/">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+
+  <!-- Libs CSS -->
+  <link rel="stylesheet" href="assets/fonts/feather/feather.min.css">
+  <link rel="stylesheet" href="assets/libs/highlight.js/styles/vs2015.css">
+  <link rel="stylesheet" href="assets/libs/quill/dist/quill.core.css">
+  <link rel="stylesheet" href="assets/libs/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="assets/libs/flatpickr/dist/flatpickr.min.css">
+
+  <!-- Theme CSS -->
+
+  <link rel="stylesheet" href="assets/css/theme.min.css" id="stylesheetLight">
+
+  <link rel="stylesheet" href="assets/css/theme-dark.min.css" id="stylesheetDark">
+
+  <!-- Angular CSS -->
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" id="stylesheetDark">
+  <link rel="stylesheet" href="bower_components/toastr/toastr.min.css">
+
+  <style>
+    body {
+      display: none;
+    }
+  </style>
+
+  <script>
+    const colorScheme = 'light'; // or dark
+    const base_url = "http://localhost:8080"
+    const APP_NAME = "Kapacity"
+  </script>
+
+</head>
+
+<body ng-app="app" ng-controller="mainCtrl">
+  <!-- NAVIGATION
+        ================================================== -->
+
+  <nav class="navbar navbar-expand-lg navbar-light" id="topnav">
+    <div class="container" ng-include="'app/includes/header.html'"></div>
+  </nav>
+
+
+  <!-- MAIN CONTENT
+        ================================================== -->
+  <div class="main-content">
+
+    <ui-view></ui-view>
+
+  </div> <!-- / .main-content -->
+
+  <!-- JAVASCRIPT
+        ================================================== -->
+  <!-- Libs JS -->
+  <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/libs/chart.js/dist/Chart.min.js"></script>
+  <script src="assets/libs/chart.js/Chart.extension.min.js"></script>
+  <script src="assets/libs/highlightjs/highlight.pack.min.js"></script>
+  <script src="assets/libs/flatpickr/dist/flatpickr.min.js"></script>
+  <script src="assets/libs/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+  <script src="assets/libs/list.js/dist/list.min.js"></script>
+  <script src="assets/libs/quill/dist/quill.min.js"></script>
+  <script src="assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+  <script src="assets/libs/select2/dist/js/select2.min.js"></script>
+  <script src="bower_components/toastr/toastr.min.js"></script>
+  <!-- Theme JS -->
+  <script src="assets/js/theme.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <!-- Angular Files -->
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+  <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/routes.js"></script>
+  <!-- Controllers -->
+  <script src="app/controllers/main.controller.js"></script>
+  <script src="app/controllers/auth.controller.js"></script>
+
+</body>
+
+</html>
