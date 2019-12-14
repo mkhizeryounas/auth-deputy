@@ -1,6 +1,5 @@
 var jwt = require("jsonwebtoken");
 const common = require("./common");
-const cert = require("../../config/keys").secret;
 const { Realm } = require("../../config/models");
 
 let data = {
