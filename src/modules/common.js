@@ -1,8 +1,19 @@
 const keys = require("../../config/keys");
 const sha256 = require("sha256");
 const Joi = require("joi");
+const NodeRSA = require("node-rsa");
 
 module.exports = {
+  generateKeyPair: () => {
+    const key = new NodeRSA({ b: 512 });
+
+    let keypair = {
+      private: key.exportKey(),
+      public: key.exportKey("public")
+    };
+
+    return keypair;
+  },
   parse: msg => {
     return JSON.parse(JSON.stringify(msg));
   },

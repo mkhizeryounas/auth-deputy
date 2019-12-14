@@ -10,6 +10,8 @@ module.exports = app => {
   app.use("/api/permissions", permissionsRouter);
   app.use("/api/scopes", scopesRouter);
   app.use("/api/users", usersRouter);
+  app.use("/api/", indexRouter);
+
   app.use("/api/*", (req, res, next) => {
     res.reply({ statusCode: 404 });
   });
