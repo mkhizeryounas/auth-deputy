@@ -46,7 +46,7 @@ let common_messages = {
     "The request by the client was not processed, as the server could not understand what the client is asking for.",
   "401":
     "The client is not allowed to access resources, and should re-request with the required credentials.",
-  "403": "The client is not allowed access the resource.",
+  "403": "The client is not allowed to access the resource.",
   "404": "The requested resource is not available.",
   "500":
     "Request can not be processed due to unexpected internal server error.",

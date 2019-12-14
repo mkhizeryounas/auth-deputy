@@ -15,7 +15,27 @@ router.post("/signin", async function(req, res, next) {
     });
     if (!_user) throw { status: 401 };
     let authUser = await _user.checkPassword(req.body.password);
-    let accessToken = await locker.lock(common.parse(authUser));
+    if (!authUser) throw { status: 401 };
+    authUser = authUser.toJSON();
+    authUser["scopes"] = authUser.permission_group
+      ? authUser.permission_group.scopes.map(e => e.name).join(",")
+      : "";
+    delete authUser["permission_group"];
+    delete authUser["createdAt"];
+    delete authUser["updatedAt"];
+    delete authUser["source"];
+    delete authUser["__v"];
+    delete authUser["permission_group"];
+    if (authUser.is_superuser) {
+      authUser.scopes = authUser.scopes.split(",").filter(e => e !== "");
+      authUser.scopes.push("authdeputy:admin");
+      authUser.scopes = authUser.scopes.join("");
+    }
+    let flagMode =
+      req.query.access_mode && req.query.access_mode === "offline_access"
+        ? true
+        : false;
+    let accessToken = await locker.lock(authUser, flagMode);
     res.reply({ data: accessToken });
   } catch (err) {
     next(err);
@@ -28,7 +48,7 @@ router.post("/signup", async (req, res, next) => {
     if (!has_superuser) {
       req.body.is_superuser = true;
       let keyPair = await common.generateKeyPair();
-      let realmCheck = await Realm.find();
+      let realmCheck = await Realm.find().then(e => e.toJSON());
       if (!realmCheck.length) {
         let realm = new Realm({
           public_key: keyPair.public,
@@ -37,7 +57,7 @@ router.post("/signup", async (req, res, next) => {
         realm = await realm.save();
       }
     }
-    let realmConfig = await Realm.findOne({});
+    let realmConfig = await Realm.findOne().then(e => e.toJSON());
     if (realmConfig.default_permission_group) {
       req.body.permission_group = realmConfig.default_permission_group;
     }
@@ -49,22 +69,6 @@ router.post("/signup", async (req, res, next) => {
     next(err);
   }
 });
-
-router.get(
-  "/authenticate",
-  locker.unlock("authdeputy:admin"),
-  async (req, res, next) => {
-    try {
-      if (req.query.scopes) {
-        console.log("CHECK SCOPES");
-      }
-      res.reply({ data: req.user });
-    } catch (err) {
-      console.log("Err", err);
-      next(err);
-    }
-  }
-);
 
 router.get("/", locker.unlock("authdeputy:admin"), async (req, res, next) => {
   try {

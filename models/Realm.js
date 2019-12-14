@@ -1,16 +1,19 @@
 const mongoose = require("mongoose");
+const { encrypt, decrypt } = require("../src/modules/cypher");
 
 var realmSchema = new mongoose.Schema(
   {
     public_key: {
       type: String,
       required: true,
-      index: { unique: true }
+      index: { unique: true },
+      set: encrypt
     },
     private_key: {
       type: String,
       required: true,
-      index: { unique: true }
+      index: { unique: true },
+      set: encrypt
     },
     token_expiry: {
       type: Number,
@@ -35,7 +38,8 @@ var realmSchema = new mongoose.Schema(
 
 realmSchema.methods.toJSON = function() {
   var obj = this.toObject();
-  delete obj.password;
+  obj.private_key = decrypt(obj.private_key);
+  obj.public_key = decrypt(obj.public_key);
   return obj;
 };
 

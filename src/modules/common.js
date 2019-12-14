@@ -3,6 +3,11 @@ const sha256 = require("sha256");
 const Joi = require("joi");
 const NodeRSA = require("node-rsa");
 
+String.prototype.replaceAll = function(search, replacement) {
+  var target = this;
+  return target.replace(new RegExp(search, "g"), replacement);
+};
+
 module.exports = {
   generateKeyPair: () => {
     const key = new NodeRSA({ b: 512 });
@@ -13,6 +18,9 @@ module.exports = {
     };
 
     return keypair;
+  },
+  slug: str => {
+    return str.replaceAll(" ", "_").replaceAll(",", "");
   },
   parse: msg => {
     return JSON.parse(JSON.stringify(msg));

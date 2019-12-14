@@ -4,8 +4,8 @@ const cert = require("../../config/keys").secret;
 const { Realm } = require("../../config/models");
 
 let data = {
-  unlock: required_scope => async (request, response, next) => {
-    let realmConfig = await Realm.findOne({});
+  unlock: (required_scope = null) => async (request, response, next) => {
+    let realmConfig = await Realm.findOne().then(e => e.toJSON());
     if (!realmConfig)
       throw {
         statusCode: 400,
@@ -23,17 +23,16 @@ let data = {
         (err, decode) => {
           try {
             if (err) throw authHeader;
-            // Here is authentication check from db & then...
             let authZ = false;
-            if (decode.is_superuser && required_scope === "authdeputy:admin") {
-              authZ = true;
-            } else {
-              decode.permission_group.scopes.map(e => {
-                if (required_scope === e.name) {
+            if (required_scope) {
+              decode.scopes.split(",").map(e => {
+                if (required_scope === e) {
                   authZ = true;
                   return false;
                 }
               });
+            } else {
+              authZ = true;
             }
             if (!authZ) {
               throw {
@@ -57,10 +56,10 @@ let data = {
       response.reply({ statusCode: 401 });
     }
   },
-  lock: async obj => {
-    let realmConfig = await Realm.findOne({});
+  lock: async (obj, offline_flag = false) => {
+    let realmConfig = await Realm.findOne().then(e => e.toJSON());
     obj["iat"] = common.time();
-    obj["exp"] = common.time() + 60 * 60 * 24;
+    if (!offline_flag) obj["exp"] = common.time() + realmConfig.token_expiry;
     obj["access_token"] = jwt.sign(obj, realmConfig.private_key, {
       algorithm: realmConfig.algorithm
     });

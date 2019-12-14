@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { slug } = require("../src/modules/common");
 
 var scopeSchema = new mongoose.Schema(
   {
@@ -6,7 +7,8 @@ var scopeSchema = new mongoose.Schema(
       type: String,
       required: true,
       index: { unique: true },
-      lowercase: true
+      lowercase: true,
+      set: slug
     }
   },
   {
