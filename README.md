@@ -22,7 +22,7 @@ Feel free to submit pull requests to me.
 
 ### Authors
 
-Khizer Younas - Initial work - mkhizeryounas
+Khizer Younas - Initial work - [http://github.com/mkhizeryounas](mkhizeryounas)
 
 ### Licensing
 
