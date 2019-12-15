@@ -93,5 +93,65 @@
       </div>
     </div>
   </div>
-  <!-- / .row -->
+
+  <!-- <hr /> -->
+  <div class="card">
+    <div class="card-header">
+      <div class="col">
+        <h4 class="card-header-title">
+          Documentation
+        </h4>
+      </div>
+    </div>
+    <div class="card-footer bg-dark">
+      <code class="highlight html bg-dark hljs xml">
+        <span class="hljs-string">
+          https://documenter.getpostman.com/view/225012/SWEB1amU?version=latest
+        </span>
+      </code>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="col">
+        <h4 class="card-header-title">
+          JWKS
+        </h4>
+      </div>
+    </div>
+    <div class="card-footer bg-dark">
+      <code class="highlight html bg-dark hljs xml">
+        <span class="hljs-string">{{base_url}}/api/.well-known/jwks.json</span>
+      </code>
+    </div>
+  </div>
+
+  <!-- <hr /> -->
+  <div class="card">
+    <div class="card-header ">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            <h4 class="card-header-title">
+              Token
+            </h4>
+          </div>
+          <div class="col-auto">
+            <span class="text-muted">
+              <span class="badge badge-soft-primary mt--1">
+                <i class="fe fe-clock"></i>
+                {{expires_in}}
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer bg-dark">
+      <code class="highlight html bg-dark hljs xml">
+        <span class="hljs-string">{{_user.access_token}}</span>
+      </code>
+    </div>
+  </div>
 </div>

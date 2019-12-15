@@ -35,6 +35,16 @@ angular
         let dashboard = await $http.get("/dashboard");
         console.log(dashboard.data.data);
         $scope.dashboard = dashboard.data.data;
+        $scope.base_url = window.origin;
+        $scope.expires_in = new Date(
+          Math.floor(
+            $scope._user.exp - Math.floor(new Date().getTime() / 1000)
+          ) * 1000
+        )
+          .toISOString()
+          .substr(11, 8);
+
+        console.log($scope.expires_in);
       } catch (err) {
         console.log("Err", err);
         toastr.error(err.data.message);

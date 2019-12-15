@@ -34,6 +34,7 @@ router.put(
       realm.token_expiry = req.body.token_expiry;
       realm = await realm.save();
       realm = await realm.toJSON();
+      delete realm["private_key"];
       res.reply({ data: realm });
     } catch (err) {
       console.log("Err", err);
@@ -48,6 +49,7 @@ router.get(
   async (req, res, next) => {
     try {
       let realm = await Realm.findOne().then(e => e.toJSON());
+      delete realm["private_key"];
       res.reply({ data: realm });
     } catch (err) {
       console.log("Err", err);
