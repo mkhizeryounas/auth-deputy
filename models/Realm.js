@@ -6,13 +6,11 @@ var realmSchema = new mongoose.Schema(
     public_key: {
       type: String,
       required: true,
-      index: { unique: true },
       set: encrypt
     },
     private_key: {
       type: String,
       required: true,
-      index: { unique: true },
       set: encrypt
     },
     token_expiry: {
