@@ -9,6 +9,10 @@ var permissionSchema = new mongoose.Schema(
       lowercase: true,
       set: slug
     },
+    description: {
+      type: String,
+      required: true
+    },
     scopes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Scope" }]
   },
   {

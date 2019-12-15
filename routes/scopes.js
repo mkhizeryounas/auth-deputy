@@ -48,6 +48,7 @@ router.put(
       let _scope = await Scope.findOne({ _id: req.params.id });
       if (!_scope) throw { status: 404 };
       _scope.name = req.body.name;
+      _scope.description = req.body.description;
       _scope = await _scope.save();
       res.reply({ data: _scope });
     } catch (err) {

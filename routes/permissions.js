@@ -49,6 +49,8 @@ router.put(
       let entry = await Permission.findOne({ _id: req.params.id });
       if (!entry) throw { status: 404 };
       entry.name = req.body.name;
+      entry.description = req.body.description;
+      entry.scopes = req.body.scopes;
       entry = await entry.save();
       res.reply({ data: entry });
     } catch (err) {

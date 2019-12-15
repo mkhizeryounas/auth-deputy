@@ -5,5 +5,5 @@ angular
     $rootScope,
     $localStorage,
     $state,
-    http
+    $http
   ) {});

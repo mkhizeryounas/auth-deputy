@@ -1,0 +1,105 @@
+<div class="row justify-content-center" ng-init="obj={}">
+  <div class="col-12 col-lg-10 col-xl-8">
+    <!-- HEADER -->
+    <div class="header" ng-init="">
+      <div class="container-fluid">
+        <!-- Body -->
+        <div class="header-body">
+          <div class="row align-items-end">
+            <div class="col">
+              <!-- Pretitle -->
+              <h6 class="header-pretitle">
+                Overview
+              </h6>
+
+              <!-- Title -->
+              <h1 class="header-title">
+                New Scope
+              </h1>
+            </div>
+            <div class="col-auto">
+              <!-- Button -->
+              <!-- <a href="#" class="btn btn-rounded-circle btn-outline-primary">
+                <span class="fe fe-plus"></span>
+              </a> -->
+            </div>
+          </div>
+          <!-- / .row -->
+        </div>
+        <!-- / .header-body -->
+      </div>
+    </div>
+
+    <form name="form" class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <!-- Label -->
+            <label class="mb-1">
+              Name
+            </label>
+
+            <!-- Form text -->
+            <small class="form-text text-muted">
+              This is the scope name that will be used to authorize user.
+            </small>
+
+            <!-- Input -->
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              ng-class="{'is-invalid': (form.name.$touched && form.name.$invalid)}"
+              placeholder=""
+              ng-model="obj.name"
+              required
+            />
+            <div class="invalid-feedback">
+              The field is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <!-- Label -->
+            <label class="mb-1">
+              Description
+            </label>
+
+            <!-- Form text -->
+            <small class="form-text text-muted">
+              Small description for the scope understanding.
+            </small>
+            <!-- Input -->
+            <input
+              type="text"
+              name="description"
+              class="form-control"
+              ng-class="{'is-invalid': (form.description.$touched && form.description.$invalid)}"
+              placeholder=""
+              ng-model="obj.description"
+              required
+            />
+            <div class="invalid-feedback">
+              The field is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 ">
+          <button
+            type="button"
+            ng-click="create(obj)"
+            class="btn btn-primary lift"
+            ng-disabled="form.$invalid"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<!-- HEADER -->
+<div class="header" ng-init="getAll()">
+  <div class="container-fluid">
+    <!-- Body -->
+    <div class="header-body">
+      <div class="row align-items-end">
+        <div class="col">
+          <!-- Pretitle -->
+          <h6 class="header-pretitle">
+            Overview
+          </h6>
+
+          <!-- Title -->
+          <h1 class="header-title">
+            Users
+          </h1>
+        </div>
+        <div class="col-auto">
+          <!-- Button -->
+          <a
+            ui-sref="users:new"
+            class="btn btn-rounded-circle btn-outline-primary"
+          >
+            <span class="fe fe-plus"></span>
+          </a>
+        </div>
+      </div>
+      <!-- / .row -->
+    </div>
+    <!-- / .header-body -->
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-sm table-nowrap card-table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">External Reference</th>
+            <th scope="col">Permission Group</th>
+            <th scope="col">Type</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="e in data">
+            <td>{{e.name}}</td>
+            <td>{{e.email}}</td>
+            <td>
+              <div class="badge badge-soft-danger" ng-if="e.external_reference">
+                {{e.external_reference}}
+              </div>
+            </td>
+            <td>
+              <div class="badge badge-soft-success" ng-if="e.permission_group">
+                {{e.permission_group.name}}
+              </div>
+            </td>
+            <td>
+              <div
+                class="badge"
+                ng-class="{'badge-soft-success': e.is_superuser===true, 'badge-soft-primary': e.is_superuser!==true}"
+              >
+                {{e.is_superuser? "SUPERUSER":"USER"}}
+              </div>
+            </td>
+            <td class="text-right">
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-ellipses dropdown-toggle"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fe fe-more-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a ui-sref="users:edit({id:e._id})" class="dropdown-item">
+                    <span class="fe fe-edit-3"></span> Edit
+                  </a>
+                  <a
+                    href="#!"
+                    ng-click="delete(e._id)"
+                    class="dropdown-item text-danger"
+                  >
+                    <span class="fe fe-trash-2"></span> Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

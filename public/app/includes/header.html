@@ -17,96 +17,10 @@
   <b><code>AuthDeputy</code></b>
 </a>
 
-<!-- Form -->
-<form class="form-inline mr-4 d-none d-lg-flex" ng-if="header_show">
-  <div class="input-group input-group-rounded input-group-merge">
-    <!-- Input -->
-    <input
-      type="search"
-      class="form-control form-control-prepended  dropdown-toggle search"
-      data-toggle="dropdown"
-      placeholder="Search"
-      aria-label="Search"
-    />
-    <div class="input-group-prepend">
-      <div class="input-group-text">
-        <i class="fe fe-search"></i>
-      </div>
-    </div>
-  </div>
-</form>
-
 <!-- User -->
 <div class="navbar-user" ng-if="header_show">
   <!-- Dropdown -->
-  <div class="dropdown mr-4 d-none d-lg-flex">
-    <!-- Toggle -->
-    <a
-      href="javascript:void(0)"
-      class="text-muted"
-      role="button"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      <span class="icon active">
-        <i class="fe fe-bell"></i>
-      </span>
-    </a>
-
-    <!-- Menu -->
-    <div class="dropdown-menu dropdown-menu-right dropdown-menu-card">
-      <div class="card-header">
-        <div class="row align-items-center">
-          <div class="col">
-            <!-- Title -->
-            <h5 class="card-header-title">
-              Notifications
-            </h5>
-          </div>
-          <div class="col-auto">
-            <!-- Link -->
-            <a href="javascript:void(0)" class="small">
-              View all
-            </a>
-          </div>
-        </div>
-        <!-- / .row -->
-      </div>
-      <!-- / .card-header -->
-      <div class="card-body">
-        <!-- List group -->
-        <div class="list-group list-group-flush my--3">
-          <a class="list-group-item px-0" href="javascript:void(0)">
-            <div class="row">
-              <div class="col-auto">
-                <!-- Avatar -->
-                <div class="avatar avatar-sm">
-                  <span class="avatar-title rounded-circle">CF</span>
-                </div>
-              </div>
-              <div class="col ml--2">
-                <!-- Content -->
-                <div class="small text-muted">
-                  <strong class="text-body">Dianna Smiley</strong> shared your
-                  post with <strong class="text-body">Ab Hadley</strong>,
-                  <strong class="text-body">Adolfo Hess</strong>, and
-                  <strong class="text-body">3 others</strong>.
-                </div>
-              </div>
-              <div class="col-auto">
-                <small class="text-muted">
-                  2m
-                </small>
-              </div>
-            </div>
-            <!-- / .row -->
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- / .dropdown-menu -->
-  </div>
+  <div class="dropdown mr-4 d-none d-lg-flex"></div>
 
   <!-- Dropdown -->
   <div class="dropdown">
@@ -128,8 +42,8 @@
 
     <!-- Menu -->
     <div class="dropdown-menu dropdown-menu-right">
-      <a href="profile-posts.html" class="dropdown-item">Profile</a>
-      <a href="settings.html" class="dropdown-item">Settings</a>
+      <a href="#" class="dropdown-item">Profile</a>
+      <a href="#" class="dropdown-item">Settings</a>
       <hr class="dropdown-divider" />
       <a ng-click="logout()" class="dropdown-item" href="javascript:void(0)"
         >Logout</a
@@ -153,16 +67,6 @@
   id="navbar"
   ng-if="header_show"
 >
-  <!-- Form -->
-  <form class="mt-4 mb-3 d-md-none">
-    <input
-      type="search"
-      class="form-control form-control-rounded"
-      placeholder="Search"
-      aria-label="Search"
-    />
-  </form>
-
   <!-- Navigation -->
   <ul class="navbar-nav mr-auto">
     <li class="nav-item ">
@@ -174,275 +78,31 @@
         Dashboards
       </a>
     </li>
-    <li class="nav-item dropdown">
-      <a
-        class="nav-link dropdown-toggle "
-        href="javascript:void(0)"
-        id="topnavPages"
-        role="button"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Pages
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="topnavPages">
-        <li class="dropright">
-          <a
-            class="dropdown-item dropdown-toggle "
-            href="javascript:void(0)"
-            id="topnavProfile"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Profile
-          </a>
-          <div class="dropdown-menu" aria-labelledby="topnavProfile">
-            <a class="dropdown-item " href="profile-posts.html">
-              Posts
-            </a>
-            <a class="dropdown-item " href="profile-groups.html">
-              Groups
-            </a>
-            <a class="dropdown-item " href="profile-projects.html">
-              Projects
-            </a>
-            <a class="dropdown-item " href="profile-files.html">
-              Files
-            </a>
-            <a class="dropdown-item " href="profile-subscribers.html">
-              Subscribers
-            </a>
-          </div>
-        </li>
-        <li class="dropright">
-          <a
-            class="dropdown-item dropdown-toggle "
-            href="javascript:void(0)"
-            id="topnavProject"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Project
-          </a>
-          <div class="dropdown-menu" aria-labelledby="topnavProject">
-            <a class="dropdown-item " href="project-overview.html">
-              Overview
-            </a>
-            <a class="dropdown-item " href="project-files.html">
-              Files
-            </a>
-            <a class="dropdown-item " href="project-reports.html">
-              Reports
-            </a>
-            <a class="dropdown-item " href="project-new.html">
-              New project
-            </a>
-          </div>
-        </li>
-        <li class="dropright">
-          <a
-            class="dropdown-item dropdown-toggle "
-            href="javascript:void(0)"
-            id="topnavTeam"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Team
-          </a>
-          <div class="dropdown-menu" aria-labelledby="topnavTeam">
-            <a class="dropdown-item " href="team-overview.html">
-              Overview
-            </a>
-            <a class="dropdown-item " href="team-projects.html">
-              Projects
-            </a>
-            <a class="dropdown-item " href="team-members.html">
-              Members
-            </a>
-            <a class="dropdown-item " href="team-new.html">
-              New team
-            </a>
-          </div>
-        </li>
-        <li>
-          <a class="dropdown-item " href="orders.html">
-            Orders
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item " href="feed.html">
-            Feed
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item " href="settings.html">
-            Settings
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item " href="invoice.html">
-            Invoice
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item " href="pricing.html">
-            Pricing
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="nav-item dropdown">
-      <a
-        class="nav-link dropdown-toggle"
-        href="javascript:void(0)"
-        id="topnavAuth"
-        role="button"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Auth
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="topnavAuth">
-        <li class="dropright">
-          <a
-            class="dropdown-item dropdown-toggle"
-            href="javascript:void(0)"
-            id="topnavSignIn"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Sign in
-          </a>
-          <div class="dropdown-menu" aria-labelledby="topnavSignIn">
-            <a class="dropdown-item" href="sign-in-cover.html">
-              Cover
-            </a>
-            <a class="dropdown-item" href="sign-in-illustration.html">
-              Illustration
-            </a>
-            <a class="dropdown-item" href="sign-in-basics.html">
-              Basic
-            </a>
-          </div>
-        </li>
-        <li class="dropright">
-          <a
-            class="dropdown-item dropdown-toggle"
-            href="javascript:void(0)"
-            id="topnavSignUp"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Sign up
-          </a>
-          <div class="dropdown-menu" aria-labelledby="topnavSignUp">
-            <a class="dropdown-item" href="sign-up-cover.html">
-              Cover
-            </a>
-            <a class="dropdown-item" href="sign-up-illustration.html">
-              Illustration
-            </a>
-            <a class="dropdown-item" href="sign-up.html">
-              Basic
-            </a>
-          </div>
-        </li>
-        <li class="dropright">
-          <a
-            class="dropdown-item dropdown-toggle"
-            href="javascript:void(0)"
-            id="topnavPassword"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Password reset
-          </a>
-          <div class="dropdown-menu" aria-labelledby="topnavPassword">
-            <a class="dropdown-item" href="password-reset-cover.html">
-              Cover
-            </a>
-            <a class="dropdown-item" href="password-reset-illustration.html">
-              Illustration
-            </a>
-            <a class="dropdown-item" href="password-reset.html">
-              Basic
-            </a>
-          </div>
-        </li>
-        <li class="dropright">
-          <a
-            class="dropdown-item dropdown-toggle"
-            href="javascript:void(0)"
-            id="topnavError"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Error
-          </a>
-          <div class="dropdown-menu" aria-labelledby="topnavError">
-            <a class="dropdown-item" href="error-illustration.html">
-              Illustration
-            </a>
-            <a class="dropdown-item" href="error.html">
-              Basic
-            </a>
-          </div>
-        </li>
-      </ul>
-    </li>
-    <li class="nav-item dropdown">
-      <a
-        class="nav-link dropdown-toggle "
-        href="javascript:void(0)"
-        id="topnavDocumentation"
-        role="button"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Docs
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="topnavDocumentation">
-        <li>
-          <a class="dropdown-item " href="getting-started.html">
-            Getting started
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item " href="components.html">
-            Components
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item " href="changelog.html">
-            Changelog
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="nav-item">
+    <li class="nav-item ">
       <a
         class="nav-link"
-        ui-sref="discover"
-        ng-class="{'active': nav_active('discover')}"
+        ng-class="{'active': nav_active('scopes')}"
+        ui-sref="scopes:list"
       >
-        Discover
+        Scopes
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a
+        class="nav-link"
+        ng-class="{'active': nav_active('permissions')}"
+        ui-sref="permissions:list"
+      >
+        Permissions
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a
+        class="nav-link"
+        ng-class="{'active': nav_active('users')}"
+        ui-sref="users:list"
+      >
+        Users
       </a>
     </li>
   </ul>

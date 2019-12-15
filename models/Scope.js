@@ -9,6 +9,10 @@ var scopeSchema = new mongoose.Schema(
       index: { unique: true },
       lowercase: true,
       set: slug
+    },
+    description: {
+      type: String,
+      required: true
     }
   },
   {

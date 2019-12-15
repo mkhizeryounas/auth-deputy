@@ -48,8 +48,8 @@ router.post("/signup", async (req, res, next) => {
     if (!has_superuser) {
       req.body.is_superuser = true;
       let keyPair = await common.generateKeyPair();
-      let realmCheck = await Realm.find().then(e => e.toJSON());
-      if (!realmCheck.length) {
+      let realmCheck = await Realm.findOne().then(e => e.toJSON());
+      if (!realmCheck) {
         let realm = new Realm({
           public_key: keyPair.public,
           private_key: keyPair.private
@@ -120,8 +120,10 @@ router.put(
       entry.name = req.body.name;
       entry.email = req.body.email;
       entry.password = req.body.password;
-      entry.permission_group = req.body.permission_group;
+      entry.permission_group =
+        req.body.permission_group === "" ? null : req.body.permission_group;
       entry.is_superuser = req.body.is_superuser;
+      entry.external_reference = req.body.external_reference;
       entry = await entry.save();
       res.reply({ data: entry });
     } catch (err) {

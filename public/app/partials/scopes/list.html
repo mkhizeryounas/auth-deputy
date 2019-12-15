@@ -1,0 +1,80 @@
+<!-- HEADER -->
+<div class="header" ng-init="getAll()">
+  <div class="container-fluid">
+    <!-- Body -->
+    <div class="header-body">
+      <div class="row align-items-end">
+        <div class="col">
+          <!-- Pretitle -->
+          <h6 class="header-pretitle">
+            Overview
+          </h6>
+
+          <!-- Title -->
+          <h1 class="header-title">
+            Scopes
+          </h1>
+        </div>
+        <div class="col-auto">
+          <!-- Button -->
+          <a
+            ui-sref="scopes:new"
+            class="btn btn-rounded-circle btn-outline-primary"
+          >
+            <span class="fe fe-plus"></span>
+          </a>
+        </div>
+      </div>
+      <!-- / .row -->
+    </div>
+    <!-- / .header-body -->
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-sm table-nowrap card-table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="e in data">
+            <td>{{e.name}}</td>
+            <td>{{e.description}}</td>
+            <td class="text-right">
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-ellipses dropdown-toggle"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fe fe-more-vertical"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a ui-sref="scopes:edit({id:e._id})" class="dropdown-item">
+                    <span class="fe fe-edit-3"></span> Edit
+                  </a>
+                  <a
+                    href="#!"
+                    ng-click="delete(e._id)"
+                    class="dropdown-item text-danger"
+                  >
+                    <span class="fe fe-trash-2"></span> Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

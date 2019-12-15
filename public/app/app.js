@@ -43,14 +43,14 @@ app.factory("authFactory", function($localStorage, $http, $rootScope) {
   return {
     async authenticate() {
       try {
-        let res = await $http.get("/users/authenticate");
+        let res = await $http.get("/authenticate?scopes=authdeputy:admin");
         $rootScope.header(true);
         $rootScope.isAuth = true;
         $rootScope.user = res.data;
         return res.data;
       } catch (err) {
         console.log("Authenticate factory error", err);
-        // toastr.error(err.data.message);
+        if ($localStorage.user) toastr.error(err.data.message);
         $rootScope.header(false);
         $localStorage.user = null;
         $rootScope.isAuth = false;
