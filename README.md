@@ -1,10 +1,15 @@
-# express
+# AuthDeputy
 
-Boilerplate for node express project with mongodb, joi, response middleware &amp; JWT locker
+AuthDeputy is an Open Source Identity and Access Management solution for Services.
 
-### MongoDB Connection String
+This repository contains the source code for the AuthDeputy Server.
 
+### Help and Documentation
+
+- [https://documenter.getpostman.com/view/225012/SWEB1amU?version=latest](Documentation)
+
+### Getting started
 
 ```
-mongodb://localhost:27017/db
+npm start
 ```
