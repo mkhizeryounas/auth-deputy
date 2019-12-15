@@ -4,14 +4,16 @@ const { Realm } = require("../../config/models");
 
 let data = {
   unlock: (required_scope = null) => async (request, response, next) => {
-    let realmConfig = await Realm.findOne().then(e => e.toJSON());
-    if (!realmConfig)
+    let realmConfig = await Realm.findOne();
+    if (!realmConfig) {
       throw {
-        statusCode: 400,
+        statusCode: 401,
         data: {
           message: `No realm exists`
         }
       };
+    }
+    realmConfig = realmConfig.toJSON();
     let authHeader = request.headers["authorization"] || "";
     if (typeof authHeader !== "undefined" && authHeader.includes("Bearer ")) {
       authHeader = authHeader.substring(7);
