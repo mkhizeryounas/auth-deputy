@@ -48,7 +48,7 @@ router.post("/signup", async (req, res, next) => {
     if (!has_superuser) {
       req.body.is_superuser = true;
       let keyPair = await common.generateKeyPair();
-      let realmCheck = await Realm.findOne().then(e => e.toJSON());
+      let realmCheck = await Realm.findOne();
       if (!realmCheck) {
         let realm = new Realm({
           public_key: keyPair.public,
