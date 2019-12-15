@@ -13,3 +13,7 @@ This repository contains the source code for the AuthDeputy Server.
 ```
 npm start
 ```
+
+### License
+
+- MIT License
