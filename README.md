@@ -22,8 +22,8 @@ Feel free to submit pull requests.
 
 ### Authors
 
-Khizer Younas - Initial work - (http://github.com/mkhizeryounas)[mkhizeryounas]
+Khizer Younas - Initial work - [mkhizeryounas](http://github.com/mkhizeryounas)
 
 ### Licensing
 
-The project is (https://github.com/mkhizeryounas/auth-deputy/blob/master/LICENSE.txt)[MIT Licenced].
+The project is [MIT Licenced](https://github.com/mkhizeryounas/auth-deputy/blob/master/LICENSE.txt).
