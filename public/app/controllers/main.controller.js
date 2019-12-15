@@ -7,6 +7,40 @@ angular
     $state,
     $http
   ) {
+    $scope.getSettings = async () => {
+      try {
+        let settings = await $http.get("/settings");
+        console.log(settings.data);
+        $scope.obj = settings.data.data;
+        // toastr.success(settings.data.message);
+        // $state.go("home");
+      } catch (err) {
+        console.log("Err", err);
+        toastr.error(err.data.message);
+      }
+    };
+    $scope.editSettings = async obj => {
+      try {
+        let settings = await $http.put("/settings", obj);
+        console.log(settings.data);
+        toastr.success(settings.data.message);
+        $state.go("home");
+      } catch (err) {
+        console.log("Err", err);
+        toastr.error(err.data.message);
+      }
+    };
+    $scope.getDashboard = async () => {
+      try {
+        let dashboard = await $http.get("/dashboard");
+        console.log(dashboard.data.data);
+        $scope.dashboard = dashboard.data.data;
+      } catch (err) {
+        console.log("Err", err);
+        toastr.error(err.data.message);
+      }
+    };
+    if ($localStorage.user) $scope._user = $localStorage.user;
     $rootScope.header = flag => {
       $rootScope.header_show = flag;
       if (!$rootScope.$$phase) $rootScope.$apply();
@@ -31,9 +65,4 @@ angular
     };
     $scope.nav_active = sub =>
       $state.current.name.includes(sub) ? true : false;
-
-    $scope.testHttp = async () => {
-      let res = await $http.get("https://www.npmjs.com/package/serve");
-      console.log(res);
-    };
   });

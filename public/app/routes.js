@@ -98,6 +98,16 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
 
+    .state("settings:edit", {
+      templateUrl: "app/partials/settings.html",
+      url: "/settings",
+      controller: "mainCtrl",
+      data: {
+        authLevel: "logged_in",
+        title: "Edit User"
+      }
+    })
+
     .state("auth:sign_in", {
       templateUrl: "app/partials/auth/sign-in.html",
       url: "/auth/sign-in",

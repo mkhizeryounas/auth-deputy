@@ -42,8 +42,8 @@
 
     <!-- Menu -->
     <div class="dropdown-menu dropdown-menu-right">
-      <a href="#" class="dropdown-item">Profile</a>
-      <a href="#" class="dropdown-item">Settings</a>
+      <a ui-sref="users:edit({id:_user._id})" class="dropdown-item">Profile</a>
+      <a ui-sref="settings:edit" class="dropdown-item">Settings</a>
       <hr class="dropdown-divider" />
       <a ng-click="logout()" class="dropdown-item" href="javascript:void(0)"
         >Logout</a
