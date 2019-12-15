@@ -10,10 +10,20 @@ This repository contains the source code for the AuthDeputy Server.
 
 ### Getting started
 
+Edit `.env` file according to your keys.
+
 ```
 npm start
 ```
 
-### License
+### Contributing
 
-- MIT License
+Feel free to submit pull requests to me.
+
+### Authors
+
+Khizer Younas - Initial work - mkhizeryounas
+
+### Licensing
+
+The project is [https://github.com/mkhizeryounas/auth-deputy/blob/master/LICENSE.txt](MIT Licenced).
