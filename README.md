@@ -6,7 +6,7 @@ This repository contains the source code for the AuthDeputy Server.
 
 ### Help and Documentation
 
-- [https://documenter.getpostman.com/view/225012/SWEB1amU?version=latest](Documentation)
+- (https://documenter.getpostman.com/view/225012/SWEB1amU?version=latest)[Documentation]
 
 ### Getting started
 
@@ -18,12 +18,12 @@ npm start
 
 ### Contributing
 
-Feel free to submit pull requests to me.
+Feel free to submit pull requests.
 
 ### Authors
 
-Khizer Younas - Initial work - [http://github.com/mkhizeryounas](mkhizeryounas)
+Khizer Younas - Initial work - (http://github.com/mkhizeryounas)[mkhizeryounas]
 
 ### Licensing
 
-The project is [https://github.com/mkhizeryounas/auth-deputy/blob/master/LICENSE.txt](MIT Licenced).
+The project is (https://github.com/mkhizeryounas/auth-deputy/blob/master/LICENSE.txt)[MIT Licenced].
