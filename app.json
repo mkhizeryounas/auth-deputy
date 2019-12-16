@@ -3,5 +3,15 @@
   "description": "Opensource identity management and authentication service",
   "repository": "https://github.com/mkhizeryounas/auth-deputy",
   "logo": "https://png.pngtree.com/svg/20170418/auth_982990.png",
-  "keywords": ["node", "express", "authentication service", "authentication microservice", "identity server"]
+  "keywords": ["node", "express", "authentication service", "authentication microservice", "identity server"],
+  "env": {
+    "secret": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "secret": {
+      "description": "Mongodb connection string",
+      "generator": "secret"
+    }
+  }
 }
