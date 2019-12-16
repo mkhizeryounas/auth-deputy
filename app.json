@@ -10,7 +10,7 @@
       "generator": "secret"
     },
     "mongodb": {
-      "description": "Mongodb connection string",
+      "description": "Mongodb connection string"
     }
   }
 }
