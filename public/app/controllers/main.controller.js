@@ -50,7 +50,7 @@ angular
         toastr.error(err.data.message);
       }
     };
-    if ($localStorage.user) $scope._user = $localStorage.user;
+//     if ($localStorage.user) $scope._user = $localStorage.user;
     $rootScope.header = flag => {
       $rootScope.header_show = flag;
       if (!$rootScope.$$phase) $rootScope.$apply();
