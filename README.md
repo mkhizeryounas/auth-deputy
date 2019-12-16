@@ -4,7 +4,7 @@ AuthDeputy is an Open Source Identity and Access Management solution for Service
 
 This repository contains the source code for the AuthDeputy Server.
 
-This project is inspired by [Auth0 Platform](https://auth0.com/).
+This project is inspired by [Auth0 Platform](https://auth0.com).
 
 ### Help and Documentation
 
