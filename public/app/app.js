@@ -68,6 +68,7 @@ app.run(function($state, $rootScope, $transitions, authFactory) {
       document.title =
         (trans.$to().data.title ? `${trans.$to().data.title} - ` : "") +
         APP_NAME;
+        if ($localStorage.user) $scope._user = $localStorage.user;
 
       let routeLevel = trans.$to().data.authLevel;
       await authFactory.authenticate();
