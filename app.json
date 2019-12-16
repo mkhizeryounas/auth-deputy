@@ -12,12 +12,15 @@
   ],
   "env": {
     "secret": {
-      "description": "A secret key for verifying the integrity of signed cookies. Must be 256 bits (32 characters)",
+      "description": "A secret key for verifying the integrity of signed cookies. Must be 256 bits (32 characters).",
       "required": true
     },
     "mongodb": {
       "description": "Mongodb connection string",
       "required": true
     }
+  },
+  "scripts": {
+    "postdeploy": "bower install"
   }
 }
