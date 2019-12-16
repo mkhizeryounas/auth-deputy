@@ -12,7 +12,7 @@
   ],
   "env": {
     "secret": {
-      "description": "A secret key for verifying the integrity of signed cookies.",
+      "description": "A secret key for verifying the integrity of signed cookies. Must be 256 bits (32 characters)",
       "required": true
     },
     "mongodb": {
