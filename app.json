@@ -2,6 +2,6 @@
   "name": "AuthDeputy",
   "description": "Opensource identity management and authentication service",
   "repository": "https://github.com/mkhizeryounas/auth-deputy",
-  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "logo": "https://png.pngtree.com/svg/20170418/auth_982990.png",
   "keywords": ["node", "express", "authentication service", "authentication microservice", "identity server"]
 }
