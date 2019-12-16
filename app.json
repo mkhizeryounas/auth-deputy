@@ -19,5 +19,8 @@
       "description": "Mongodb connection string",
       "required": true
     }
+  },
+  "scripts": {
+    "postdeploy": "bower install"
   }
 }
