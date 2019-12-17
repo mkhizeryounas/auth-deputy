@@ -16,7 +16,7 @@
       "required": true
     },
     "mongodb": {
-      "description": "Mongodb connection string",
+      "description": "Mongodb connection string.",
       "required": true
     }
   },
