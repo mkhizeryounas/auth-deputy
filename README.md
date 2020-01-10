@@ -26,7 +26,7 @@ Feel free to submit pull requests.
 
 ### Authors
 
-Khizer Younas - Initial work - [mkhizeryounas](http://github.com/mkhizeryounas)
+Khizer Younas - Initial work - [mkhizeryounas](http://github.com/mkhizeryounas).
 
 ### Licensing
 
