@@ -29,7 +29,7 @@ router.post('/signin', async function(req, res, next) {
     if (authUser.is_superuser) {
       authUser.scopes = authUser.scopes.split(',').filter(e => e !== '');
       authUser.scopes.push('authdeputy:admin');
-      authUser.scopes = authUser.scopes.join('');
+      authUser.scopes = authUser.scopes.join(',');
     }
     let flagMode =
       req.query.access_mode && req.query.access_mode === 'offline_access'
