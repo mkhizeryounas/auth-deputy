@@ -1,0 +1,21 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Run deployment with jenkins
+        run: |
+          curl -I -u ${JENKINS_USERNAME}:${JENKINS_PASSWORD} "${JENKINS_JOB_URL}"
+        env:
+          CI: true
+          JENKINS_JOB_URL: ${{ secrets.JENKINS_JOB_URL }}
+          JENKINS_USERNAME: ${{ secrets.JENKINS_USERNAME }}
+          JENKINS_PASSWORD: ${{ secrets.JENKINS_PASSWORD }}
