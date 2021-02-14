@@ -27,9 +27,12 @@ router.post('/signin', async function (req, res, next) {
     delete authUser['__v'];
     delete authUser['permission_group'];
     if (authUser.is_superuser) {
-      authUser.scopes = authUser.scopes.filter((e) => e !== '');
+      try {
+        authUser.scopes = authUser.scopes.filter((e) => e !== '');
+      } catch (err) {
+        authUser.scopes = [];
+      }
       authUser.scopes.push('authdeputy:admin');
-      authUser.scopes = authUser.scopes;
     }
     let flagMode =
       req.query.access_mode && req.query.access_mode === 'offline_access'
