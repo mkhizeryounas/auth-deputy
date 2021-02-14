@@ -13,11 +13,11 @@ let data = {
             message: `No realm exists`,
           },
         };
-      let authHeader =
-        request.headers['authorization'] ||
-        request.query.hasOwnProperty('access_token')
-          ? 'Bearer ' + request.query['access_token']
-          : '';
+      let authHeader = request.headers['authorization'] || null;
+      if (!authHeader && request.query['access_token']) {
+        authHeader = 'Bearer ' + request.query['access_token'];
+      }
+      console.log('authHeader', authHeader);
       if (typeof authHeader !== 'undefined' && authHeader.includes('Bearer ')) {
         authHeader = authHeader.substring(7);
         jwt.verify(
