@@ -4,21 +4,21 @@ const { User, Realm } = require('../config/models');
 const common = require('../src/modules/common');
 const locker = require('../src/modules/locker');
 
-router.post('/signin', async function(req, res, next) {
+router.post('/signin', async function (req, res, next) {
   try {
     let _user = await User.findOne({ email: req.body.email }).populate({
       path: 'permission_group',
       populate: {
         path: 'scopes',
-        model: 'Scope'
-      }
+        model: 'Scope',
+      },
     });
     if (!_user) throw { status: 401 };
     let authUser = await _user.checkPassword(req.body.password);
     if (!authUser) throw { status: 401 };
     authUser = authUser.toJSON();
     authUser['scopes'] = authUser.permission_group
-      ? authUser.permission_group.scopes.map(e => e.name).join(',')
+      ? authUser.permission_group.scopes.map((e) => e.name)
       : '';
     delete authUser['permission_group'];
     delete authUser['createdAt'];
@@ -27,9 +27,9 @@ router.post('/signin', async function(req, res, next) {
     delete authUser['__v'];
     delete authUser['permission_group'];
     if (authUser.is_superuser) {
-      authUser.scopes = authUser.scopes.split(',').filter(e => e !== '');
+      authUser.scopes = authUser.scopes.filter((e) => e !== '');
       authUser.scopes.push('authdeputy:admin');
-      authUser.scopes = authUser.scopes.join(',');
+      authUser.scopes = authUser.scopes;
     }
     let flagMode =
       req.query.access_mode && req.query.access_mode === 'offline_access'
@@ -52,12 +52,12 @@ router.post('/signup', async (req, res, next) => {
       if (!realmCheck) {
         let realm = new Realm({
           public_key: keyPair.public,
-          private_key: keyPair.private
+          private_key: keyPair.private,
         });
         realm = await realm.save();
       }
     }
-    let realmConfig = await Realm.findOne().then(e => e.toJSON());
+    let realmConfig = await Realm.findOne().then((e) => e.toJSON());
     if (realmConfig.default_permission_group) {
       req.body.permission_group = realmConfig.default_permission_group;
     }

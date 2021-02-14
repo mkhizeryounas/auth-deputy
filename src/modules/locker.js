@@ -1,20 +1,20 @@
-var jwt = require("jsonwebtoken");
-const common = require("./common");
-const { Realm } = require("../../config/models");
+var jwt = require('jsonwebtoken');
+const common = require('./common');
+const { Realm } = require('../../config/models');
 
 let data = {
   unlock: (required_scope = null) => async (request, response, next) => {
     try {
-      let realmConfig = await Realm.findOne().then(e => e.toJSON());
+      let realmConfig = await Realm.findOne().then((e) => e.toJSON());
       if (!realmConfig)
         throw {
           statusCode: 401,
           data: {
-            message: `No realm exists`
-          }
+            message: `No realm exists`,
+          },
         };
-      let authHeader = request.headers["authorization"] || "";
-      if (typeof authHeader !== "undefined" && authHeader.includes("Bearer ")) {
+      let authHeader = request.headers['authorization'] || '';
+      if (typeof authHeader !== 'undefined' && authHeader.includes('Bearer ')) {
         authHeader = authHeader.substring(7);
         jwt.verify(
           authHeader,
@@ -25,7 +25,7 @@ let data = {
               if (err) throw authHeader;
               let authZ = false;
               if (required_scope) {
-                decode.scopes.split(",").map(e => {
+                decode.scopes.map((e) => {
                   if (required_scope === e) {
                     authZ = true;
                     return false;
@@ -38,8 +38,8 @@ let data = {
                 throw {
                   statusCode: 403,
                   data: {
-                    message: `[SCOPE ERROR] - This route requires '${required_scope}' scope.`
-                  }
+                    message: `[SCOPE ERROR] - This route requires '${required_scope}' scope.`,
+                  },
                 };
               }
               request.user = decode;
@@ -47,7 +47,7 @@ let data = {
             } catch (error) {
               response.reply({
                 statusCode: error.statusCode || 401,
-                data: error.data
+                data: error.data,
               });
             }
           }
@@ -60,14 +60,14 @@ let data = {
     }
   },
   lock: async (obj, offline_flag = false) => {
-    let realmConfig = await Realm.findOne().then(e => e.toJSON());
-    obj["iat"] = common.time();
-    if (!offline_flag) obj["exp"] = common.time() + realmConfig.token_expiry;
-    obj["access_token"] = jwt.sign(obj, realmConfig.private_key, {
-      algorithm: realmConfig.algorithm
+    let realmConfig = await Realm.findOne().then((e) => e.toJSON());
+    obj['iat'] = common.time();
+    if (!offline_flag) obj['exp'] = common.time() + realmConfig.token_expiry;
+    obj['access_token'] = jwt.sign(obj, realmConfig.private_key, {
+      algorithm: realmConfig.algorithm,
     });
     return obj;
-  }
+  },
 };
 
 module.exports = data;
