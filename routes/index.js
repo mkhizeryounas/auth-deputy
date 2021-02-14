@@ -84,7 +84,7 @@ router.get('/authenticate', locker.unlock(), async (req, res, next) => {
   try {
     let accessFlag = true;
     let scopeAccessNeeded = '';
-    if (req.query.scopes) {
+    if (req.query.scopes && !req.user.scopes.includes('authdeputy:admin')) {
       let avaialbe_scopes = req.user.scopes ? req.user.scopes : [];
       req.query.scopes.split(',').map(async (e) => {
         if (!avaialbe_scopes.includes(e)) {

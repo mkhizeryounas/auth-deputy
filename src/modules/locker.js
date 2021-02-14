@@ -17,7 +17,6 @@ let data = {
       if (!authHeader && request.query['access_token']) {
         authHeader = 'Bearer ' + request.query['access_token'];
       }
-      console.log('authHeader', authHeader);
       if (typeof authHeader !== 'undefined' && authHeader.includes('Bearer ')) {
         authHeader = authHeader.substring(7);
         jwt.verify(
@@ -32,12 +31,7 @@ let data = {
                 required_scope &&
                 !decode.scopes.includes('authdeputy:admin')
               ) {
-                decode.scopes.map((e) => {
-                  if (required_scope === e) {
-                    authZ = true;
-                    return false;
-                  }
-                });
+                authZ = decode.scopes.includes(required_scope);
               } else {
                 authZ = true;
               }
