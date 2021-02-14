@@ -28,7 +28,10 @@ let data = {
             try {
               if (err) throw authHeader;
               let authZ = false;
-              if (required_scope) {
+              if (
+                required_scope &&
+                !decode.scopes.includes('authdeputy:admin')
+              ) {
                 decode.scopes.map((e) => {
                   if (required_scope === e) {
                     authZ = true;
