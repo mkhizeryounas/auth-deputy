@@ -6,10 +6,8 @@
     "start": "NODE_ENV=production node ./bin/www",
     "dev": "nodemon ./bin/www"
   },
-  "devDependencies": {
-    "bower": "1.8.8"
-  },
   "dependencies": {
+    "bower": "1.8.8",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
