@@ -1,5 +1,5 @@
 # AuthDeputy
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/mkhizeryounas/auth-deputy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Genesys225/auth-deputy)
 
 
 AuthDeputy is an Open Source Identity and Access Management solution for Services.
