@@ -10,6 +10,7 @@
     "bower": "1.8.8"
   },
   "dependencies": {
+    "bower": "^1.5.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
